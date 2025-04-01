@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block title %}SignUp{% endblock title %}
+{% block content %}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font-family: 'Nunito';
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 10% 60%;
+        }
+        .icon {
+            margin: 25% 25%;
+        }
+        .icon img {
+            width: 8vh;
+            border: 1px solid #d1d6de;
+            background-color: #1d2636;
+            padding: 0.5vh 3vh;
+            border-top-right-radius: 10vh;
+            border-bottom-right-radius: 10vh;
+        }
+        .sign-up {
+            margin: 10% 0 0 40%;
+        }
+        .headers {
+            margin-bottom: 10%;
+        }
+        .sign-up h1, h2 {
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2vh;
+        }
+        .sign-up h1 {
+            font-weight: 600;
+        }
+        .sign-up h2 {
+            color: #747c8f;
+            font-size: 18px;
+        }
+        .sign-up a {
+            color: #188037;
+            text-decoration: none;
+        }
+        form input {
+            margin: 1% 0;
+            border: 1px solid #d1d6de;
+            background-color: #e8f0ff;
+            padding: 3% 3%;
+            width: 88%;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        form button {
+            width: 94%;
+        }
+        .create-account {
+            margin: 5vh 0;
+        }
+        .create-account button {
+            padding: 1.5vh 21.2vh;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #188037;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        li {
+            list-style-type: none;
+            color: red;
+        }
+    </style>
+    <div class="page">
+        <div class="container">
+            <div class="icon">
+                <img src="media/logo.png" alt="logo">
+            </div>
+            <div class="sign-up">
+                <div class="headers">
+                    <h1>Create an account</h1>
+                    <h2>Already have one? <a href="login">Sign in</a></h2>
+                </div>
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="create-account" style="margin: 5vh 0;">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

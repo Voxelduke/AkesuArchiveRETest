@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block title %}Topics{% endblock title %}
+{% block content %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: 'Nunito';
+    }
+    header {
+        display: grid;
+        grid-template-columns: 75% 10% 6% 8%;
+        padding: 0.5% 1.5%;
+        color: rgb(52,64,84);
+        border-bottom: 1px solid #188037;
+    }
+    header p {
+        color: rgb(152,162,179);
+    }
+    header h4 {
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .upgrade a {
+        transition: all 250ms ease-in-out;
+        padding: 1.5vh 3vh;
+        border: 1px solid #188037;
+        color: #188037;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .upgrade a:hover {
+        transition: all 250ms ease-in-out;
+        color: white;
+        background-color: #188037;
+    }
+    #side {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    .logo-text p {
+        margin-left: 1.5vh;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .logo p {
+        color: rgb(71,84,103);
+    }
+    .logo img {
+        width: 8vh;
+        border: 1px solid #d1d6de;
+        background-color: #1d2636;
+        padding: 0.5vh 3vh;
+        border-top-right-radius: 10vh;
+        border-bottom-right-radius: 10vh;
+    }
+    .locator {
+        border-bottom: 1px solid#188037;
+        width: 96%;
+        float: left;
+        display: flex;
+        list-style-type: none;
+        padding: 0.5% 2%;
+        align-items: center;
+        color: #188037;
+    }
+    li {
+        padding-right: 1%;
+    }
+    .topic_item {
+        padding: 1% 2%;
+    }
+    .topic {
+        padding: 2%;
+    }
+    .logout a {
+        transition: all 250ms ease-in-out;
+        color: #188037;
+        text-decoration: none;
+    }
+    .logout a:hover {
+        transition: all 250ms ease-in-out;
+        text-decoration: underline;
+    }
+    .topic_item a{
+        transition: all 250ms ease-in-out;
+        color: #188037;
+        border: 1px solid #188037;
+        padding: 1%;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .topic_item a:hover{
+        transition: all 250ms ease-in-out;
+        color: white;
+        background-color: #188037;
+    }
+</style>
+<header>
+    <div class="logo">
+        <img src="../media/logo.png" alt="logo">
+        <div class="logo-text">
+            <p style="color: grey;">*inspired by <a href="cognito.com" style="color: grey; text-decoration: none;">Cognito</a></p>
+        </div>
+    </div>
+    <div class="you" id="side">
+        {{ user }}
+    </div>
+    <div class="upgrade" id="side">
+        <a href="">Donate!</a>
+    </div>
+    <div class="logout" id="side">
+        <a href="../logout">Log out</a>
+    </div>
+</header>
+<div class="locator" style="margin-bottom: 2%;">
+    <li><a href="../dashboard" style="text-decoration: none; color: #188037;">Dashboard</a> <li><</li> {{ subject.name }}</li>
+</div>
+<div class="topic">
+    <div class="topic_item">
+        {% for x in topic %}
+        <a href="../notes/{{ x.id }}">{{ x.name }}</a><br><br><br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
